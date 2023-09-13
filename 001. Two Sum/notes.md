@@ -40,9 +40,9 @@ We can have two *for* loops to check if the sum of the outer for loop's value an
 This would have a time complexity of *O(n^2)* and a space complexity of *O(1)*.
 
 ## Approach - 2
-We know there is a single solution to the problem, and in such cases, we can use a **Set**.
-We can declare a new set which is empty initially. Instead of using two for loops to check each element with the other elements, we can get the difference between the target and each element of the array and check if the difference is present in the input array. 
-Another advantage of using a Set here is to deal with duplicates in the array.
-We can begin with a for loop having an if condition that checks for the difference. We could directly check if the difference exists in the array, but this approach wouldn't account for the duplicates. So, the if condition should check whether the newly created Set has the difference or not.
-If the Set has the difference value, then we can return the current index of the for loop and the index of the difference value obtained from the set. Otherwise, we can add the array number and its index to the Set for the next iterations.
+We know there is a single solution to the problem, and in such cases, we can use a **Map**.
+We can declare a new M,ap which is empty initially. Instead of using two for loops to check each element with the other elements, we can get the difference between the target and each element of the array and check if the difference is present in the input array. 
+Another advantage of using a Map here is to deal with duplicates in the array.
+We can begin with a for loop having an if condition that checks for the difference. We could directly check if the difference exists in the array, but this approach wouldn't account for the duplicates. So, the if condition should check whether the newly created Map has the difference or not.
+If the Map has the difference value, then we can return the current index of the for loop and the index of the difference value obtained from the Map. Otherwise, we can add the array number and its index to the Map for the next iterations.
 This would have a time complexity of *O(n)* and a space complexity of *O(n)*.
