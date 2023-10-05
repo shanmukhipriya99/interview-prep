@@ -31,5 +31,5 @@ Constraints:
 We are given a string that can contain words and spaces. We need to return the length of the last word in the string, keeping the spaces that may exist at the end.
 
 ## Approach - 1
-We can use the trim() method to remove the whitespaces at the start and end of the string, then convert it into an array (`split(' ')`) and return the length of the last value in the array.
+We can use the trim() method to remove the whitespaces at the start and end of the string, then convert it into an array (`split('')`) and return the length of the last value in the array.
 This would have a time complexity of *O(n)* and a space complexity of *O(n)*.
