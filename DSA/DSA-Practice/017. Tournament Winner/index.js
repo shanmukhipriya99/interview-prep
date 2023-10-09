@@ -21,3 +21,27 @@ function tournamentWinner(competitions, results) {
 
 // Do not edit the line below.
 exports.tournamentWinner = tournamentWinner;
+
+
+// ========== Solution-2 ===============
+
+
+function tournamentWinner(competitions, results) {
+  // Write your code here.
+  let scoreBoard = new Map();
+  let score = -Infinity;
+  let team = '';
+  let winningTeam = '';
+  for (let i = 0; i < results.length; i++) {
+    score = scoreBoard.get(competitions[i][Number(!results[i])]) || 0; 
+    team = competitions[i][Number(!results[i])];
+    scoreBoard.set(team, score+3);
+    if (!scoreBoard.has(winningTeam) || scoreBoard.get(team) > scoreBoard.get(winningTeam)) {
+      winningTeam = team;
+    }
+  }
+  return winningTeam;
+}
+
+// Do not edit the line below.
+exports.tournamentWinner = tournamentWinner;
