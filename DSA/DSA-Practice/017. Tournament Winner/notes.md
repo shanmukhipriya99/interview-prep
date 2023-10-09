@@ -30,5 +30,8 @@ Finally, we can return the value of the team variable.
 This would have a time complexity of *O(n)* and a space complexity of *O(n)*, where n is the number of competitions (or results).
 
 ## Approach - 2
-
-This would have a time complexity of *O(n)* and a space complexity of *O(n)*, where n is the number of competitions (or results).
+We can create a new Map() and three variables for holding the score, current, and winning teams. Then, iterate through the results array with a for loop.
+Use the `get()` to get the score of the current team and set that to the score, else, set 0. Then set the current team value to the team variable. Then, use `set()` to set the team and score (add 3) in the Map().
+Then, use an if block and set the team as the winning team if the score of the current team is greater than the score of the winning team or if the winning team doesn't exist in the Map().
+Return the winning team at the end.
+This would have a time complexity of *O(n)* and a space complexity of *O(k)*, where k is the number of unique teams.
