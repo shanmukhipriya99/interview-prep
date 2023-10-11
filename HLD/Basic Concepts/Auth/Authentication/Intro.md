@@ -1,0 +1,101 @@
+## Authentication
+
+### Definition (Who are you?)
+
+**Authentication** is the process of verifying that a user is who they claim to be. For example, when you go through security at an airport, you show your ID to authenticate/prove your identity.
+
+**Status Code:** `401 Unauthorized`
+
+### Why Is User Authentication Important?
+
+- Helps verify identity before accessing network or resources
+- Ensures that only authorized users can access protected resources
+- Prevents unauthorized users from performing malicious activities
+
+### Types of Authentication:
+
+- #### Stateful Authentication (i.e. session using cookie)
+
+  `You can revoke the authentication session on the Identity Provider(*IdP*) anytime.`
+
+  ##### How it Works?
+
+  When the client submits login credentials, the server:
+
+  - verifies the credentials against the DB,
+  - creates a temporary user **session** (stored server-side),
+  - issues a cookie with the **session ID** and sends it to the client.
+
+  Then, each time the client makes a request to the server, the cookie with the session ID is also sent along, and the server validates it against the session store & grants access. When the client logs out, the server destroys the session and the cookie is cleared.
+
+  `Note: If the session info in the server is deleted, the session ID from the client is meaningless.`
+
+  Every user session is stored server-side making it **stateful**:
+
+  - memory; ex: file system
+  - cache; ex: Redis, Memcached, etc
+  - DB; ex: SQL, MongoDB, etc
+
+  ##### Advantages:
+
+  - Revoke the session anytime
+  - Speed & Performance is better as there's no need to process extensive data
+  - The cookies are signed with a secret (protected from manipulation)
+  - Easy to implement and manage for one-session-sever scenario
+  - Session data can be changed later (assume that for a one-session-sever, no inconsistent problem)
+
+  ##### Disadvantages:
+
+  - **Increasing server overhead:** As the number of logged-in users increases, the more server resources are occupied.
+  - **Fail to scale:** If the sessions are distributed in different servers, we need to implement a tracking algorithm to link a specific user session and the specific session sever. That means, once Bob’s session is handled by X server, then all Bob’s following requests must be handled by X server. This can be done by adding a tag to the client request in the proxy layer (e.g. HAProxy) before routing to the backend. The proxy layer uses this tag to determine which backend server to route.
+    Furthermore, if the session servers are deployed with duplication to have fail-over, the problem becomes more complicated since the 2+ peers duplicating each other must implement an algorithm to make sure the consistency of their sessions.
+  - **Difficult for 3rd party applications to use your credentials:** When a 3rd party application enables your users to login to their website, the 3rd party application is not able to directly verify your users’ session (as they are stored on your backend). The verification must be redirected to the credential servers. Therefore, there is more work between 3rd party application and the backend.
+
+- #### Stateless Authentication (i.e. token using JWT, OAuth, etc.)
+
+  `You cannot revoke the authentication session on the Identity Provider(*IdP*) manually, have to wait for the expiration time.`
+
+  ##### How it Works?
+
+  When the client submits login credentials, the server:
+
+  - verifies the credentials against the DB,
+  - generates a temporary **token** & embeds user data (payload) into it,
+  - responds back with the token (in body or header)
+    The token is stored in the client storage and sends the token along with each request. The server verifies the token & grants access. When the client logs out, the token is cleared from the client storage.
+
+  `Note: If the token on the client storage is deleted, the client would have re-authenticate themselves.`
+
+  - The server signs the token with a secret (private key) to prevent manipulation by the client.
+  - The tokens can be opaque (payload contains no user-identifying info) or self-contained (payload contains info that can be used to identify user)
+  - Typically sent in `Authorization` header.
+  - When a token is about to expire, it can be refreshed i.e. if the client is issued both access & refresh tokens.
+
+  ##### Advantages:
+
+  - **Lower server overhead:** The large amount of session data is not stored on the server-side. We can store more user properties on the client-side session data to reduce the number of database access without worrying the memory overhead on the server.
+  - **Easy to scale:** Since the session data is stored on the client side, it does not matter which backend server the request is routed to, as long as all backend servers share the same private key (for signing), then all servers have the same capability to verify the validity of the session.
+  - **Good to integrate with 3rd party applications:** In the single sign-on protocols, the 3rd party applications and the IdP must be able to communicate with each other via user agents (browser). During the account linking process between 3rd party applications and IdP, IdP sends a signed message to the browser, and the browser redirects this message to the 3rd party applications. Using a pre-configured shared secret, the 3rd party applications can determine whether the account linking (single sign-on) is valid by itself.
+
+  ##### Disadvantages:
+
+  - **Cannot revoke the session anytime:** Since the user session is stored at client side, the server does not have any rights to delete the session.
+  - **Relatively complex to implement for one-session-server scenario:** The advantages of stateless authentication is scalability. However, it increases the technical complexity and it is not extremely useful when we only have one-session-server.
+  - **Session data cannot be changed until its expiration time:** Suppose we want to add “Age” property to the session data above, probably we can ask the client to update it, but we cannot make sure the client does update it, since its previously session data is not expired yet, then the client still has the chance to make requests with old session data.
+
+  #### Improved stateless authentication:
+
+  - Assign clients the permission (send the clients a unique refresh token) to request an extension lifetime of session data.
+  - Set the expiration time of user data to 24 hours (instead of one month).
+  - Each time the session data is expired, the client issues a request (attached with a valid refresh token) to the server to renew the session data.
+    `With this improvement, we can have the scalability and performance advantages of stateless authentication. Though we still cannot revoke the session data immediately, while we can forbid its lifetime extension by revoking the refresh token.`
+    <!-- BLACKLIST TOKENS -->
+
+### Types of Stateful Authentication:
+- Passwords – considered “old school” and less secure but are still commonly used in almost all authentication schemes.
+- One-Time Passwords (OTPs) – grants a user or device one-time access to a system. Authentication systems can deliver an OTP via email, text message, or a physical access token.
+- Token Authentication – grants access to a user or device based on an access token they possess. The token can be a hardware device or a software token passed to their browser from an identity provider.
+- Single Sign-On (SSO)‍ – enables login to multiple applications via a central identity provider. The identity provider can be a service with a large user base, such as Google or Facebook, or an organizational identity provider, such as Active Directory.
+- Biometric Authentication – uses an inherence factor, such as the user’s face or fingerprint to identify them. There are increasingly sophisticated ways to compare a photo or scan of a person’s biological traits with a database of known identities.
+- Multi-Factor Authentication (MFA) – This methodology combines multiple forms of authentication to improve security. Typically, an MFA scheme will augment passwords with token-based authentication, OTP, biometric authentication, or several of these.
+- Passwordless Authentication – This is basically a variation on MFA, which uses two authentication factors including fingerprints, magic links, or OTAs (over-the-air) to authenticate users without a password.
