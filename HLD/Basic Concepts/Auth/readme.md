@@ -10,3 +10,4 @@
 - https://fusionauth.io/articles/ciam/making-sure-your-auth-system-scales
 - https://medium.com/@kennch/stateful-and-stateless-authentication-10aa3e3d4986
 - https://systemweakness.com/introduction-to-csrf-how-can-a-cookie-get-you-hacked-1-2-d34e0a0e6319
+- https://frontegg.com/blog/token-based-authentication
