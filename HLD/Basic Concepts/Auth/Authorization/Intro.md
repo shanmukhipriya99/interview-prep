@@ -1,4 +1,15 @@
-## Authorization
+# Authorization
+
+## Cues
+
+1. What is Authorization?
+2. Authorization status code?
+3. Why Is User Authorization Important?
+4. What is the "Least Privilege Principle"?
+5. What are the different types of Authorization?
+6. What are some common permissions used in Authorization?
+
+## Notes
 
 ### Definition (What can you do?)
 
