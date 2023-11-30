@@ -25,5 +25,8 @@
 23. What is `Hybrid Load Balancing`?
 24. What is `Layer 4 Load Balancing`?
 25. What is `Layer 7 Load Balancing`?
+26. What are `Stateless Load Balancers`?
+27. What are `Stateful Load Balancers`?
+28. Can `Stateful load balancing` be further categorized?
 
 ### Summary

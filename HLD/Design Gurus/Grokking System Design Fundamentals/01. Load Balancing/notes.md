@@ -373,4 +373,23 @@ Cons:
 
 **Example**: A web application with multiple microservices uses Layer 7 load balancing to route incoming API requests based on the URL path, ensuring that each microservice receives only the requests it is responsible for handling.
 
-### 
+### What are `Stateless Load Balancers`?
+
+`Stateless load balancers` operate without maintaining any information about the clients' session or connection state. They make routing decisions based solely on the incoming request data, such as the client's IP address, request URL, or other headers. Because stateless load balancers do not store session information, they can quickly and efficiently distribute incoming traffic without considering the clients' history or past interactions with the application.
+
+**Example**: Consider a web application that enables users to search for products according to their location. A stateless load balancer can allocate requests to servers based on the user's geographic location, without retaining any session data.
+
+### What are `Stateful Load Balancers`?
+
+`Stateful load balancers` preserve session information between requests. The load balancer assigns a client to a specific server and ensures that all subsequent requests from the same client are directed to that server. This method is beneficial when requests pertain to a particular session and necessitate session data.
+
+**Example**: Suppose a web application that requires users to log in to access their personal information. A stateful load balancer can guarantee that requests from the same user are routed to the same server, allowing session data such as login credentials to be available.
+
+### Can `Stateful load balancing` be further categorized?
+
+Yes, stateful load balancing can be categorized into two types:
+
+- #### Source IP Affinity
+  This form of stateful load balancing assigns a client to a specific server based on the client's IP address. While this approach ensures that requests from the same client consistently reach the same server, it may pose issues if the client's IP address frequently changes, such as in mobile networks.
+- #### Session Affinity
+  In this type of stateful load balancing, the load balancer allocates a client to a specific server based on a session identifier, such as a cookie or URL parameter. This method ensures that requests from the same client consistently reach the same server, regardless of the client's IP address.
