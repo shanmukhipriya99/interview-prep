@@ -1,3 +1,3 @@
 ## Resources used:
 
-- https://github.com/donnemartin/system-design-primer
+- https://leetcode.com/discuss/interview-question/system-design?currentPage=1&orderBy=hot&query=
