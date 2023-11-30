@@ -71,3 +71,147 @@ This is the process of decrypting `SSL/TLS encryption` at the load balancer laye
 8. #### Security
 9. #### Cost savings
 10. #### Content caching
+
+### How does load balancing use the `Round Robin Algorithm`?
+
+The `Round Robin` algorithm distributes incoming requests sequentially to available servers in a circular order.
+
+Pros:
+
+- Easy to implement and understand.
+- Works well when servers have similar capacities.
+
+Cons:
+
+- May not perform optimally when servers have different capacities or varying workloads.
+- No consideration for server health or response time.
+
+**Example**: A website with three web servers receives requests in the order A, B, C, A, B, C, and so on, distributing the load evenly among the servers.
+
+### How does load balancing use the `Least Connections Algorithm`?
+
+The `Least Connections` algorithm directs incoming requests to the server with the lowest number of active connections. This approach accounts for the varying workloads of servers.
+
+Pros:
+
+- Adapts to differing server capacities and workloads.
+- Balances load more effectively when dealing with requests that take a variable amount of time to process.
+
+Cons:
+
+- Requires tracking the number of active connections for each server, which can increase complexity.
+- May not factor in server response time or health.
+
+**Example**: An email service receives requests from users. The load balancer directs new requests to the server with the fewest active connections, ensuring that servers with heavier workloads are not overwhelmed.
+
+### How does load balancing use the `Weighted Round Robin Algorithm`?
+
+The `Weighted Round Robin` algorithm is an extension of the Round Robin algorithm that assigns different weights to servers based on their capacities. The load balancer distributes requests proportionally to these weights.
+
+Pros:
+
+- Accounts for different server capacities, balancing load more effectively.
+- Simple to understand and implement.
+
+Cons:
+
+- Weights must be assigned and maintained manually.
+- No consideration for server health or response time.
+
+**Example**: A content delivery network has three servers with varying capacities. The load balancer assigns weights of 3, 2, and 1 to these servers, respectively, distributing requests in a 3:2:1 ratio.
+
+### How does load balancing use the `Weighted Least Connections Algorithm`?
+
+The `Weighted Least Connections` algorithm combines the Least Connections and Weighted Round Robin algorithms. It directs incoming requests to the server with the lowest ratio of active connections to assigned weight.
+
+Pros:
+
+- Balances load effectively, accounting for both server capacities and active connections.
+- Adapts to varying server workloads and capacities.
+
+Cons:
+
+- Requires tracking active connections and maintaining server weights.
+- May not factor in server response time or health.
+
+**Example**: An e-commerce website uses three servers with different capacities and assigned weights. The load balancer directs new requests to the server with the lowest ratio of active connections to weight, ensuring an efficient distribution of load.
+
+### How does load balancing use the `IP Hash Algorithm`?
+
+The `IP Hash` algorithm determines the server to which a request should be sent based on the source and/or destination IP address. This method maintains session persistence, ensuring that requests from a specific user are directed to the same server.
+
+Pros:
+
+- Maintains session persistence, which can be useful for applications requiring a continuous connection with a specific server.
+- Can distribute load evenly when using a well-designed hash function.
+  
+Cons:
+
+- May not balance load effectively when dealing with a small number of clients with many requests.
+- No consideration for server health, response time, or varying capacities.
+  
+**Example**: An online multiplayer game uses the IP Hash algorithm to ensure that all requests from a specific player are directed to the same server, maintaining a continuous connection for a smooth gaming experience.
+
+### How does load balancing use the `Least Response Time Algorithm`?
+
+The `Least Response Time` algorithm directs incoming requests to the server with the lowest response time and the fewest active connections. This method helps to optimize the user experience by prioritizing faster-performing servers.
+
+Pros:
+
+- Accounts for server response times, improving user experience.
+- Considers both active connections and response times, providing effective load balancing.
+  
+Cons:
+
+- Requires monitoring and tracking server response times and active connections, adding complexity.
+- May not factor in server health or varying capacities.
+  
+**Example**: A video streaming service uses the Least Response Time algorithm to direct users to the server with the fastest response time, ensuring that videos start quickly and minimize buffering times.
+
+### How does load balancing use the `Custom Load Algorithm`?
+
+The `Custom Load` algorithm allows administrators to create their own load balancing algorithm based on specific requirements or conditions. This can include factors such as server health, location, capacity, and more.
+
+Pros:
+
+- Highly customizable, allowing for tailored load balancing to suit specific use cases.
+- Can consider multiple factors, including server health, response times, and capacity.
+  
+Cons:
+
+- Requires custom development and maintenance, which can be time-consuming and complex.
+- May require extensive testing to ensure optimal performance.
+  
+**Example**: An organization with multiple data centers around the world develops a custom load balancing algorithm that factors in server health, capacity, and geographic location. This ensures that users are directed to the nearest healthy server with sufficient capacity, optimizing user experience and resource utilization.
+
+### How does load balancing use the `Random Algorithm`?
+
+The `Random` algorithm directs incoming requests to a randomly selected server from the available pool. This method can be useful when all servers have similar capacities and no session persistence is required.
+
+Pros:
+
+- Simple to implement and understand.
+- Can provide effective load distribution when servers have similar capacities.
+
+Cons:
+
+- No consideration for server health, response times, or varying capacities.
+- May not be suitable for applications requiring session persistence.
+
+**Example**: A static content delivery network uses the Random algorithm to distribute requests for images, JavaScript files, and CSS stylesheets among multiple servers. This ensures an even distribution of load and reduces the chances of overloading any single server.
+
+### How does load balancing use the `Least Bandwidth Algorithm`?
+
+The `Least Bandwidth` algorithm directs incoming requests to the server currently utilizing the least amount of bandwidth. This approach helps to ensure that servers are not overwhelmed by network traffic.
+
+Pros:
+
+- Considers network bandwidth usage, which can be helpful in managing network resources.
+- Can provide effective load balancing when servers have varying bandwidth capacities.
+
+Cons:
+
+- Requires monitoring and tracking server bandwidth usage, adding complexity.
+- May not factor in server health, response times, or active connections.
+
+**Example**: A file hosting service uses the Least Bandwidth algorithm to direct users to the server with the lowest bandwidth usage, ensuring that servers with high traffic are not overwhelmed and that file downloads are fast and reliable.
