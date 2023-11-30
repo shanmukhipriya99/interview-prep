@@ -28,5 +28,8 @@
 26. What are `Stateless Load Balancers`?
 27. What are `Stateful Load Balancers`?
 28. Can `Stateful load balancing` be further categorized?
+29. How can `redundancy` be achieved to ensure `high availability` and `fault tolerance` w.r.t `load balancers`?
+30. Why are `health checks` and `monitoring` important for load balancers?
+31. How can `Synchronization and State Sharing` be achieved when load balancers are using `active-active` or `active-passive` configurations?
 
 ### Summary
