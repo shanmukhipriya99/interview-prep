@@ -6,5 +6,6 @@
 4. What is `Session Persistence`?
 5. What is `SSL/TLS Termination`?
 6. How do `Load Balancers` work?
+7. What are some common uses of `load balancing`?
 
 ### Summary
