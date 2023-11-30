@@ -16,5 +16,14 @@
 14. How does load balancing use the `Custom Load Algorithm`?
 15. How does load balancing use the `Random Algorithm`?
 16. How does load balancing use the `Least Bandwidth Algorithm`?
+17. Can you list some common load balancing types?
+18. What is `Hardware Load Balancing`?
+19. What is `Software Load Balancing`?
+20. What is `Cloud-Based Load Balancing`?
+21. What is `DNS Load Balancing`?
+22. What is `Global Server Load Balancing`?
+23. What is `Hybrid Load Balancing`?
+24. What is `Layer 4 Load Balancing`?
+25. What is `Layer 7 Load Balancing`?
 
 ### Summary
