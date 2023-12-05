@@ -31,5 +31,10 @@
 29. How can `redundancy` be achieved to ensure `high availability` and `fault tolerance` w.r.t `load balancers`?
 30. Why are `health checks` and `monitoring` important for load balancers?
 31. How can `Synchronization and State Sharing` be achieved when load balancers are using `active-active` or `active-passive` configurations?
+32. What are the different ways of scaling `load balancers`?
+33. Can load balancers perform `rate limiting` and `connection limits`?
+34. Can load balancers provide `caching and content optimization`?
+35. What is the impact of load balancers on `latency`?
+36. What are some common issues/challenges associated with load balancers?
 
 ### Summary
