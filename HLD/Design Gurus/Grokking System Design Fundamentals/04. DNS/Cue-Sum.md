@@ -8,5 +8,6 @@
 6. What are `Recursive` and `Iterative` DNS queries?
 7. What is `DNS caching` and `TTL (Time To Live)` w.r.t DNS Resolution?
 8. What is `Negative caching` w.r.t DNS Resolution?
+9. Can you list a few techniques that provide `DNS load balancing and high availability`?
 
 ### Summary
