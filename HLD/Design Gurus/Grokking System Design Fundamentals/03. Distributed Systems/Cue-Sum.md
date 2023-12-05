@@ -12,6 +12,7 @@
 10. What are `Cordination Services` w.r.t distributed systems?
 11. What is `Intrusion Detection and Prevention` w.r.t distributed systems?
 12. What are some components of monitoring and observability in distributed systems?
-13. 
+13. How is `Resilience and Error Handling` useful?
+14.  What are some components of `Resilience and Error Handling` in distributed systems?
 
 ### Summary
