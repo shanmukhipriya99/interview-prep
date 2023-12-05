@@ -8,5 +8,6 @@
 6. What is `Cache Miss`?
 7. What is `Cache Eviction`?
 8. What is `Cache Staleness`?
+9. Why is `caching` important?
 
 ### Summary

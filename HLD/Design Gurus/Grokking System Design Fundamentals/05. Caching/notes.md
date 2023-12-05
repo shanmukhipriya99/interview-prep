@@ -33,4 +33,25 @@ The process of removing data from the cache, typically to make room for new data
 
 When the data in the cache is outdated compared to the original data source.
 
+### Why is `caching` important?
+
+- #### _Reduced latency_
+
+  By serving data from the cache, which is typically faster to access than the original data source, caching can significantly reduce the time it takes to retrieve the data.
+
+- #### _Improved system performance_
+
+  Caching can significantly improve the performance of an application by reducing the number of times data needs to be fetched from its original source. Since cached data can be retrieved faster than from the original source, this results in a significant reduction in processing time, which leads to a more responsive application.
+
+- #### _Reduced network load_
+
+  Caching can also reduce network load by minimizing the amount of data that needs to be transmitted over the network. Since cached data is stored locally, there is no need to fetch data from the original source, reducing the amount of data that needs to be transferred over the network.
+
+- #### _Increased scalability_
+
+  Caching can improve the scalability of an application by reducing the load on the original source. By storing frequently accessed data in a cache, the original source is less likely to be overwhelmed with requests, making it more scalable.
+
+- #### _Better user experience_
+  Faster response times and reduced latency can lead to a better user experience. Applications that load quickly and respond to user requests in a timely manner are more likely to be used and preferred by users.
+
 ### 
