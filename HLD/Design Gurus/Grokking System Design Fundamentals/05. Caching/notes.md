@@ -8,10 +8,14 @@ The goal of caching is to reduce the number of times data needs to be fetched fr
 
 ### What are some ways to implement `caching`?
 
-- `In-memory caching` stores data in the main memory of the computer, which is faster to access than disk storage.
-- `Disk caching` stores data on the hard disk, which is slower than main memory but faster than retrieving data from a remote source.
-- `Database caching` stores frequently accessed data in the database itself, reducing the need to access external storage.
-- `CDN caching` stores data on a distributed network of servers, reducing the latency of accessing data from remote locations.
+- `In-memory caching` stores data in the main memory of the computer, which is faster to access than disk storage. In-memory caching is useful for frequently accessed data that can fit into the available memory. This type of caching is commonly used for caching API responses, session data, and web page fragments. To implement in-memory caching, software engineers can use various techniques, including using a cache library like Memcached or Redis, or implementing custom caching logic within the application code.
+- `Disk caching` stores data on the hard disk, which is slower than main memory but faster than retrieving data from a remote source. Disk caching is useful for data that is too large to fit in memory or for data that needs to persist between application restarts. This type of caching is commonly used for caching database queries and file system data.
+- `Database caching` stores frequently accessed data in the database itself, reducing the need to access external storage. This type of caching is useful for data that is stored in a database and frequently accessed by multiple users. Database caching can be implemented using a variety of techniques, including database query caching and result set caching.
+- `CDN caching` stores data on a distributed network of servers, reducing the latency of accessing data from remote locations. This type of caching is useful for data that is accessed from multiple locations around the world, such as images, videos, and other static assets. CDN caching is commonly used for content delivery networks and large-scale web applications.
+- `Client-side caching` occurs on the client device, such as a web browser or mobile app. Client-side caching stores frequently accessed data, such as images, CSS, or JavaScript files, to reduce the need for repeated requests to the server. Examples of client-side caching include browser caching and local storage.
+- `Server-side caching` occurs on the server, typically in web applications or other backend systems. Server-side caching can be used to store frequently accessed data, precomputed results, or intermediate processing results to improve the performance of the server. Examples of server-side caching include full-page caching, fragment caching, and object caching.
+- `DNS caching`:
+  DNS cache is a type of cache used in the Domain Name System (DNS) to store the results of DNS queries for a period of time. When a user requests to access a website, their computer sends a DNS query to a DNS server to resolve the website’s domain name to an IP address. The DNS server responds with the IP address, and the user’s computer can then access the website using the IP address.
 
 ### What is `Cache`?
 
@@ -53,5 +57,9 @@ When the data in the cache is outdated compared to the original data source.
 
 - #### _Better user experience_
   Faster response times and reduced latency can lead to a better user experience. Applications that load quickly and respond to user requests in a timely manner are more likely to be used and preferred by users.
+
+### What & Where to Cache?
+
+![What & Where to Cache?](image.png)
 
 ### 
