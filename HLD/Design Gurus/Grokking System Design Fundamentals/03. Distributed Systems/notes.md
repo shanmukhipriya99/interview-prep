@@ -75,4 +75,30 @@ Some factors to cosider are:
 - #### Caching Strategies
   Caching is a technique used to store frequently accessed data or computed results temporarily, allowing the system to quickly retrieve the data from cache instead of recalculating or fetching it from the primary data source. By implementing effective caching strategies, you can significantly reduce latency and improve the performance of your distributed system. Common caching strategies include in-memory caching, distributed caching, and content delivery networks (CDNs).
 
+### What is `Concurrency Control` w.r.t distributed systems?
+
+`Concurrency control` is the process of managing simultaneous access to shared resources or data in a distributed system. It ensures that multiple processes can work together efficiently while avoiding conflicts or inconsistencies. Techniques for implementing concurrency control include:
+
+- _Locking_: Locks are used to restrict access to shared resources or data, ensuring that only one process can access them at a time.
+
+- _Optimistic concurrency control_: This approach assumes that conflicts are rare and allows multiple processes to work simultaneously. Conflicts are detected and resolved later, usually through a validation and rollback mechanism.
+
+- _Transactional memory_: This technique uses transactions to group together multiple operations that should be executed atomically, ensuring data consistency and isolation.
+
+### What is `Synchronization` w.r.t distributed systems?
+
+`Synchronization` is the process of coordinating the execution of multiple processes or threads in a distributed system to ensure correct operation. Synchronization can be achieved using various mechanisms, such as:
+
+- _Barriers_: Barriers are used to synchronize the execution of multiple processes or threads, ensuring that they all reach a specific point before proceeding.
+- _Semaphores_: Semaphores are signaling mechanisms that control access to shared resources and maintain synchronization among multiple processes or threads.
+- _Condition variables_: Condition variables allow processes or threads to wait for specific conditions to be met before proceeding with their execution.
+
+### What are `Consistency Models` w.r.t distributed systems?
+
+In distributed systems, consistency models define the rules for maintaining data consistency across multiple nodes or components. Various consistency models, such as strict consistency, sequential consistency, eventual consistency, and causal consistency, provide different levels of guarantees for data consistency and can impact the overall system performance, availability, and complexity.
+
+### What are `Cordination Services` w.r.t distributed systems?
+
+Coordination services are specialized components or tools that help manage distributed systems' complexity by providing a set of abstractions and primitives for tasks like configuration management, service discovery, leader election, and distributed locking. Examples of coordination services include Apache ZooKeeper, etcd, and Consul.
+
 ### 
