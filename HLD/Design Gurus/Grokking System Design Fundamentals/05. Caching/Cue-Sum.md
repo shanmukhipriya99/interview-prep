@@ -11,5 +11,7 @@
 9. Why is `caching` important?
 10. What & Where to Cache?
 11. What is a `Cache Replacement Policy`? List some common ones.
+12. What is `Cache Invalidation`? List some `Cache Invalidation Strategies`.
+13. List some `Cache Invalidation Methods`.
 
 ### Summary
