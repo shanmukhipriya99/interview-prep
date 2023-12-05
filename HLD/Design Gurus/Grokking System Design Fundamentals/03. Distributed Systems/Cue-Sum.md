@@ -11,5 +11,7 @@
 9. What are `Consistency Models` w.r.t distributed systems?
 10. What are `Cordination Services` w.r.t distributed systems?
 11. What is `Intrusion Detection and Prevention` w.r.t distributed systems?
+12. What are some components of monitoring and observability in distributed systems?
+13. 
 
 ### Summary
