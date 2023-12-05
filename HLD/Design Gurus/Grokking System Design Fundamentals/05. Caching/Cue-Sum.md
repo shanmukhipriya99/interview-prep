@@ -10,5 +10,6 @@
 8. What is `Cache Staleness`?
 9. Why is `caching` important?
 10. What & Where to Cache?
+11. What is a `Cache Replacement Policy`? List some common ones.
 
 ### Summary

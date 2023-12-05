@@ -62,4 +62,22 @@ When the data in the cache is outdated compared to the original data source.
 
 ![What & Where to Cache?](image.png)
 
+### What is a `Cache Replacement Policy`? List some common ones.
+
+A cache replacement policy determines which items in the cache should be removed when the cache becomes full. Some common ones are:
+
+1. #### *Least Recently Used (LRU)*
+   LRU is a cache replacement policy that removes the least recently used item from the cache when it becomes full. This policy assumes that items that have been accessed more recently are more likely to be accessed again in the future.
+
+2. #### *Least Frequently Used (LFU)*
+   LFU is a cache replacement policy that removes the least frequently used item from the cache when it becomes full. This policy assumes that items that have been accessed more frequently are more likely to be accessed again in the future.
+
+3. #### *First In, First Out (FIFO)*
+   FIFO is a cache replacement policy that removes the oldest item from the cache when it becomes full. This policy assumes that the oldest items in the cache are the least likely to be accessed again in the future.
+
+4. #### *Random Replacement*
+   Random replacement is a cache replacement policy that removes a random item from the cache when it becomes full. This policy doesn’t make any assumptions about the likelihood of future access and can be useful when the access pattern is unpredictable.
+
+LRU and LFU are generally more effective than FIFO and random replacement since they take into account the access pattern of the cache. However, LRU and LFU can be more expensive to implement since they require maintaining additional data structures to track access patterns. FIFO and random replacement are simpler to implement but may not be as effective in optimizing cache performance.
+
 ### 
