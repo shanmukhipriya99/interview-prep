@@ -35,3 +35,28 @@ DNS, or Domain Name System, is a system used to translate human-readable domain 
 - #### _Forwarding resolver_:
 
   A forwarding resolver forwards DNS queries to another resolver, which is typically a caching resolver, instead of contacting DNS servers directly. This setup allows for better control, security, and performance.
+
+### What is `DNS Resolution`?
+
+DNS translates human-readable domain names into machine-readable IP addresses. This translation process is known as `DNS Resolution`. The DNS resolution process involves a series of recursive and iterative queries, utilizing a distributed and hierarchical infrastructure of DNS servers, resolvers, and caching mechanisms.
+
+### What are `Recursive` and `Iterative` DNS queries?
+
+- #### _Recursive query_:
+
+  In a recursive query, the DNS resolver asks for the complete answer to a query from the DNS server. If the server has the answer, it responds with the required information. If not, the server takes responsibility for contacting other DNS servers to find the answer and then returns it to the resolver. Recursive queries put more responsibility on the DNS server to find the requested information.
+
+- #### _Iterative query_:
+  In an iterative query, the DNS resolver asks the DNS server for the best answer it has at the moment. If the server doesn't have the complete answer, it responds with a referral to another server that might have more information. The resolver then contacts that server with a new iterative query, repeating the process until it finds the complete answer. In iterative queries, the resolver takes on more responsibility for finding the requested information.
+
+### What is `DNS caching` and `TTL (Time To Live)` w.r.t DNS Resolution?
+
+To speed up the DNS resolution process, resolvers and servers cache the results of previous queries. When a resolver receives a query, it first checks its cache to see if the answer is already available. If it finds the cached information, it returns the answer without contacting other servers, saving time and reducing network traffic.
+
+Each DNS record has an associated Time To Live (TTL) value, which specifies how long the record should be stored in the cache. TTL is measured in seconds, and once the TTL expires, the cached information is removed to ensure that outdated information is not used.
+
+### What is `Negative caching` w.r.t DNS Resolution?
+
+Negative caching is the process of caching the non-existence of a DNS record. When a resolver receives a query for a non-existent domain or record, it caches this information as a negative response, preventing repeated queries for the same non-existent resource. This reduces the load on DNS servers and improves overall performance.
+
+### 
