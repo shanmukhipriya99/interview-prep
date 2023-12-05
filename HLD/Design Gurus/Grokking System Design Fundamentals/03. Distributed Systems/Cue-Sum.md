@@ -10,6 +10,6 @@
 8. What is `Synchronization` w.r.t distributed systems?
 9. What are `Consistency Models` w.r.t distributed systems?
 10. What are `Cordination Services` w.r.t distributed systems?
-11. 
+11. What is `Intrusion Detection and Prevention` w.r.t distributed systems?
 
 ### Summary

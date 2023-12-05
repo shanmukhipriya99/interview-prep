@@ -101,4 +101,8 @@ In distributed systems, consistency models define the rules for maintaining data
 
 Coordination services are specialized components or tools that help manage distributed systems' complexity by providing a set of abstractions and primitives for tasks like configuration management, service discovery, leader election, and distributed locking. Examples of coordination services include Apache ZooKeeper, etcd, and Consul.
 
+### What is `Intrusion Detection and Prevention` w.r.t distributed systems?
+
+Intrusion detection and prevention systems (IDPS) are designed to monitor network traffic, detect malicious activities or policy violations, and take appropriate actions to mitigate potential threats. By deploying IDPS solutions in your distributed system, you can identify and respond to security incidents more effectively, thus reducing the risk of data breaches and system compromise.
+
 ### 
