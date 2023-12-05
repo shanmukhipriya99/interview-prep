@@ -1,6 +1,6 @@
 ### Cues
 
-1. What is `Scalability`? 
+1. What is `Scalability`?
 2. What are the types of `Scalability`?
 3. What is `Availability`?
 4. What do you mean by `high availability` with reference to distributed systems?
@@ -13,6 +13,6 @@
 11. What is `Intrusion Detection and Prevention` w.r.t distributed systems?
 12. What are some components of monitoring and observability in distributed systems?
 13. How is `Resilience and Error Handling` useful?
-14.  What are some components of `Resilience and Error Handling` in distributed systems?
+14. What are some components of `Resilience and Error Handling` in distributed systems?
 
 ### Summary
