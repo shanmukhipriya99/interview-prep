@@ -15,6 +15,7 @@ var isAnagram = function(s, t) {
         sObj[s[i]] = (sObj[s[i]] || 0) + 1;
         tObj[t[i]] = (tObj[t[i]] || 0) + 1;
     }
+    if(Object.keys(sObj).length !== Object.keys(tObj).length) return false; // adding this line decreases the time taken
     for(let key of Object.keys(sObj)) {
         if(sObj[key] !== tObj[key]) {
             return false;
