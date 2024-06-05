@@ -36,3 +36,16 @@ First, use a `map` to count the frequency of the elements. Then, create an array
 #### This would have a time complexity of *O(nlogn)* and a space complexity of *O(n)*.
 
 ## Approach - 2
+We can use the bucket sort approach to solve with time complexity of O(n).
+- First, use the `map` or `object` to track the element and their frequency.
+- Then use a for loop to create a bucket for every element in the input array. Basically an array of arrays, where each child array is a bucket and create one extra bucket as the 0th index won't be touched => `i<=nums.length`.
+- Then populate the buckets based on the frequency. As in treat the frequency as the index and the element as the value to be pushed into the bucket.
+- Now, use the bucket sort method.
+- Since we are dealing with top k elements, we need to loop in decreasing fashion.
+- For each bucket, if the bucket length is greater than 0, then push it into the result array. 
+- Make sure you use the spread operatoe to push into the result array to flatten (handling multiple elements with same frequency).
+- return the sliced result array.
+
+Time complexity: O(n)
+
+Space complexity: O(n)
