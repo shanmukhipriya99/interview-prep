@@ -143,3 +143,113 @@ Practice identifying:
 - Whether you can reduce space from O(n) → O(1)
 
 ---
+
+# 🧭 Two Pointer Technique in Arrays
+
+The **Two Pointer** approach uses two indices (or pointers) to solve problems efficiently in linear time.
+
+---
+
+## 🧠 When to Use Two Pointers?
+
+| Pattern           | Use Case                                 |
+|------------------|-------------------------------------------|
+| `Left + Right`    | Searching from both ends (sorted arrays, palindromes, two-sum) |
+| `Slow + Fast`     | Skipping duplicates, detecting cycles     |
+| `Read + Write`    | In-place array modifications (e.g., removing duplicates, moving zeroes) |
+
+---
+
+## 🧪 Key Idea
+
+Use two pointers to:
+- Traverse and **compare** elements.
+- **Reduce time complexity** from O(n²) to O(n).
+- **Modify arrays in-place** without extra space.
+
+---
+
+## 🧰 Common Problems & Approaches
+
+### 1. **Sorted Array – Remove Duplicates**
+
+```js
+let insertAt = 1;
+for (let i = 1; i < nums.length; i++) {
+  if (nums[i] !== nums[i - 1]) {
+    nums[insertAt] = nums[i];
+    insertAt++;
+  }
+}
+return insertAt;
+```
+
+| Pointers Used | Role                      |
+|---------------|---------------------------|
+| `i`           | Reader (scans the array)  |
+| `insertAt`    | Writer (marks next write position) |
+
+---
+
+### 2. **Two Sum in Sorted Array**
+
+```js
+let left = 0, right = arr.length - 1;
+while (left < right) {
+  let sum = arr[left] + arr[right];
+  if (sum === target) return [left, right];
+  else if (sum < target) left++;
+  else right--;
+}
+```
+
+---
+
+### 3. **Reverse Array**
+
+```js
+let left = 0, right = arr.length - 1;
+while (left < right) {
+  [arr[left], arr[right]] = [arr[right], arr[left]];
+  left++;
+  right--;
+}
+```
+
+---
+
+### 4. **Move Zeroes to End**
+
+```js
+let insertAt = 0;
+for (let i = 0; i < nums.length; i++) {
+  if (nums[i] !== 0) {
+    [nums[insertAt], nums[i]] = [nums[i], nums[insertAt]];
+    insertAt++;
+  }
+}
+```
+
+---
+
+## ⚠️ Tips
+
+- Usually one pointer **lags behind** to do in-place modifications.
+- Works best when the array is **sorted** or **requires element order preservation**.
+- Can be paired with **Sliding Window** for subarray-based problems.
+
+---
+
+## 🔗 Practice Problems
+
+| Problem                                       | Pattern          |
+|----------------------------------------------|------------------|
+| LeetCode 26 – Remove Duplicates              | Read + Write     |
+| LeetCode 283 – Move Zeroes                   | Read + Write     |
+| LeetCode 167 – Two Sum II                    | Left + Right     |
+| LeetCode 125 – Valid Palindrome              | Left + Right     |
+| LeetCode 344 – Reverse String                | Left + Right     |
+
+---
+
+> 💡 **Insight**: Two pointers give you fine control over traversal — you move forward **only when needed**, reducing redundant work and boosting performance.
